@@ -1,0 +1,83 @@
+.logo {
+	float: left;
+	margin-left: 30px;
+}
+body {
+width: 1250px;
+}
+.login{
+	
+	
+	float: right;
+ 
+	margin-top: 50px;
+
+
+}
+
+.clase-1 {
+	list-style:none;
+	width: 1250px;
+	float: left;
+  margin-left: 10px;
+}
+.clase-1 li {
+	background-color: green;
+	float: left;
+	padding: 10px ;
+	border: black 2px outset;
+}
+.clase-1 li a {
+	text-decoration: none;
+	color: ghostwhite;
+	padding: 10px 80px;
+}
+.clase-1 li a:hover {
+	color: gold;
+
+}
+/*pagina inicio*/
+.inicio {
+	border: 2px solid black;
+	float:left;
+	width : 1200px;
+ margin: 1px 50px;
+}
+.quiens{
+	width: 600px;
+	float:left;
+	margin: 10px 50px;
+	font-size:  15px ;
+		margin-bottom: 100px;
+}
+.contact{
+	border: 10px outset green;
+
+	width: 300px ;
+	margin : 100px 760px ;
+}
+.quiens h2{
+	font-size: 50px;
+
+}
+#piso1 {
+	margin-left: 130px;
+	margin-bottom: 50px;
+	margin-top: 50px;
+}
+.piepag{
+  width: 1200px;
+  border-top:  5px outset green;
+  float: left;
+	margin: 10px 50px;
+}
+.piepag h5{
+  width: 400px;
+  float : left;
+}
+.piepag p{
+	margin-top: 7px;
+	width: 230px;
+	float: right;
+
+}
