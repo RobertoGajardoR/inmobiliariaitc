@@ -10,6 +10,7 @@ if (@!$_SESSION['user']) {
   <link rel="shortcut icon" type="image/x-icon" href="../favicon.ico">
     <meta charset="utf-8">
     <title>administrador inmobiliaria itc</title>
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" >
     	<link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/jquery.dataTables.css">
        <script src="../js/jquery.min.js"></script>
@@ -33,14 +34,16 @@ function aparecerR()
 </script>
   </head>
 <body style="width: 1250px;">
-<a href="../index2.php"><img class="logo" alt="logo" src="../medios/Logo1.jpg" style="float: left; margin-left: 30px;" /><a>
+<a href="../index.php"><img class="logo" alt="logo" src="../medios/Logo1.jpg" style="float: left; margin-left: 30px;" /><a>
 <form id="login" style="float: right; margin-right: 50px ; margin-top: 50px; ">
 		<label><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
 	
 	</form>
- <?php include("../datos/connect_db.php")?>
+ <?php include("../datos/connect_db.php"); ?>
+   <div class="inicio" >
     <h1 style="margin: 50px; width:1200px; float : left">Gestionar cuentas</h1> 
-	   
+
+
     <div class="container" id="TUser" >
         <br><br>
         <table id="example" class="display" cellspacing="0" width="100%">
@@ -73,7 +76,7 @@ function aparecerR()
                
                
                     <a href="EUser.php?id=<?=$row["id"];?>&ideditar=2" class="btn btn-primary">Editar</a>
-                    <a href="../controlador/eliminaruser.php?id=<?=$row["id"];?>&idborrar=2" class="btn btn-danger">Eliminar</a>               	
+                    <a href="../controladores/eliminaruser.php?id=<?=$row["id"];?>&idborrar=2" class="btn btn-danger">Eliminar</a>               	
                 </td>
             </tr>
             <?php } ?>
@@ -86,23 +89,24 @@ function aparecerR()
     </script>
    <a  onclick="desaparecerR()" class="btn btn-primary" style="margin-bottom: 30px;" >registrar nuevo user </a>
     </div>
-        <div  id="RUser" style="display : none;">
+<div  id="RUser" style="display : none;margin: 0 auto;">
  <center>
 <form method="post" action="../controladores/registrouser.php" >
    	<fieldset style="width : 500px; margin : 10px 10px 10px 10px; ">
     	<legend  style=""><b>Nuevo Registro</b></legend>
    
-      <label style=""><b>Nombre usuario</b></label>
+      <label style=""><b>Nombre usuario: </b></label>
       <input type="text" name="user" required placeholder="" /></br></br>
  
-    
-      <label style=""><b>Contraseña trabajo</b></label>
+      <label style=""><b>Correo electrónico: </b></b></label>
+      <input type="text" name="email" required placeholder="" /></br></br>
+
+      <label style=""><b>Contraseña: </b></label>
       <input type="text" name="password"   required placeholder=""/></br></br>
       
-      <label style=""><b>Correo electrónico</b></b></label>
-      <input type="text" name="email" required placeholder="" /></br></br>
-  
-  
+      <label style=""><b>Privilegios: </b></label></br>
+      <input type="radio" name="previ" checked value="user"> Usuario</br>
+      <input type="radio" name="previ" value="admin"> Administrador</br></br>
      
       <input  onclick="desaparecer()" type="submit" name="submit" class="btn btn-primary" value="Registrar"/></br></br><a onclick="aparecerR()" class="btn btn-danger">cancelar registro</a>
 
@@ -110,5 +114,7 @@ function aparecerR()
 		</form>
 		</center>    
 </div>
+</div>
+<div class="piepag"><h5>Copyright © 2015. InmobiliariaITC es un producto de tu imaginacion.</h5><p><a href="#">Aviso legal</a> | <a href="#">Politica de privacidad</a></p></div>
   </body>
 </html>

@@ -22,8 +22,18 @@ if (@!$_SESSION['user']) {
 <body>
 	<img class="logo" alt="logo" src="../medios/Logo1.jpg" />
 	<form class="login">
-		<label><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
-	
+      <?php
+      if (@!$_SESSION['pasadmin']) {
+        ?>
+
+        <label><a href="#">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
+        <?php
+      }else{
+        ?>
+          <label><a href="../vistas/admin.php">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
+        <?php
+
+      } ?>
 	</form>
 	<ul class="clase-1">
 	

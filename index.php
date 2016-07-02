@@ -45,9 +45,19 @@ if (@!$_SESSION['user']) {
 }else{
 	?>
 	<form class="login" action="controladores/validar.php" method="post" name="login">
+			<?php
+			if (@!$_SESSION['pasadmin']) {
+				?>
 
-			<label><a href="vistas/admin.php">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="controladores/desconectar.php"> Cerrar Cesión </a></label>
+				<label><a href="#">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="controladores/desconectar.php"> Cerrar Cesión </a></label>
+				<?php
+			}else{
+				?>
+					<label><a href="vistas/admin.php">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="controladores/desconectar.php"> Cerrar Cesión </a></label>
+				<?php
 
+			} ?>
+		
 	</form>
 	<ul class="clase-1">
 		<li><a href="index.php" >inicio</a></li>

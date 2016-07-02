@@ -19,8 +19,9 @@ if (@!$_SESSION['user']) {
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
-      <link rel="stylesheet" href="../js/jquery-ui.css">
+          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <!-- <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
     <SCRIPT language=Javascript>
       
@@ -47,8 +48,18 @@ if (@!$_SESSION['user']) {
 <body>
 	<img class="logo" alt="logo" src="../medios/Logo1.jpg" />
 	<form class="login">
-		<label><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
-	
+      <?php
+      if (@!$_SESSION['pasadmin']) {
+        ?>
+
+        <label><a href="#">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
+        <?php
+      }else{
+        ?>
+          <label><a href="../vistas/admin.php">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
+        <?php
+
+      } ?>
 	</form>
 	<ul class="clase-1">
 		<li><a href="../index.php" >inicio</a></li>
@@ -79,7 +90,7 @@ if (@!$_SESSION['user']) {
     	   
    
       <label style=""><b>Fecha de pago: </b></label>
-      <input type="date" id="datepicker" value="<?=$row["fechalim"];?>" name="fecha" required placeholder="" /></br></br>
+      <input type="text" id="datepicker" value="<?=$row["fechalim"];?>" name="fecha" required placeholder="" /></br></br>
  
     
       <label style=""><b>Servicio prestado: </b></label>

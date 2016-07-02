@@ -5,9 +5,9 @@ include("../datos/connect_db.php");
 	$query=mysqli_query($db,$sql); 
 	if($query) {
 		echo ' <script language="javascript">alert("registro del usuario eliminado con éxito");</script> ';
-		echo "<script>location.href='admin.php'</script>";
+		echo "<script>location.href='../vistas/admin.php'</script>";
 	}else {
 		echo ' <script language="javascript">alert("error al eliminar registro del usuario");</script> ';
-		echo "<script>location.href='admin.php.php'</script>";
+		echo "<script>location.href='../vistas/admin.php'</script>";
 	}
 ?>

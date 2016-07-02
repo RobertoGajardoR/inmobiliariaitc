@@ -14,11 +14,13 @@ if (@!$_SESSION['user']) {
 <link rel="stylesheet" href="../css/style.css" type="text/css" media="all" >
 	<link href="../css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/jquery.dataTables.css">
+
        <script src="../js/jquery.min.js"></script>
     <script src="../js/bootstrap.min.js"></script>
     <script src="../js/jquery-1.11.1.min.js"></script>
     <script src="../js/jquery.dataTables.min.js"></script>
-      <link rel="stylesheet" href="../js/jquery-ui.css">
+     <script src="../js/jquery-ui.js"></script>
+          <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
      <SCRIPT language=Javascript>
@@ -83,8 +85,18 @@ return true;
 <body>
 	<img class="logo" alt="logo" src="../medios/Logo1.jpg" />
 	<form class="login">
-		<label><a href="">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
-	
+      <?php
+      if (@!$_SESSION['pasadmin']) {
+        ?>
+
+        <label><a href="#">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
+        <?php
+      }else{
+        ?>
+          <label><a href="../vistas/admin.php">Bienvenido <strong><?php echo $_SESSION['user'];?></strong> </a> || <a href="../controladores/desconectar.php"> Cerrar Cesión </a></label>
+        <?php
+
+      } ?>
 	</form>
 	<ul class="clase-1">
 		<li><a href="../index.php" >inicio</a></li>
@@ -255,7 +267,7 @@ return true;
     	<legend  style=""><b>Nuevo Registro</b></legend>
    
       <label style=""><b>Fecha de pago: </b></label>
-      <input type="date" id="datepicker2" name="fecha" required placeholder="0000-00-00" /></br></br>
+      <input type="text" id="datepicker2" name="fecha" required placeholder="0000-00-00" /></br></br>
  
     
       <label style=""><b>Servicio prestado: </b></label>
